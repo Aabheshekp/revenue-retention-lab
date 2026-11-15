@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    ports: ["8004:8000"]
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "dashboard/app.py", "--server.address=0.0.0.0"]
+    ports: ["8504:8501"]
+    environment: ["PYTHONPATH=/app/src"]
